@@ -23,7 +23,7 @@ class Products extends Component {
   render() {
     console.log("products", this.state.Products);
     return (
-      <div>
+      <div className="container">
         <h1>This is Products page </h1>
         <table className="table">
           <thead>

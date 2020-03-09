@@ -21,9 +21,8 @@ class Users extends Component {
   }
 
   render() {
-    console.log("products", this.state.Products);
     return (
-      <div className="content">
+      <div className="container">
         <h1>This is Products page </h1>
         <table className="table">
           <thead>
