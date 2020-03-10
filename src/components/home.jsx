@@ -4,7 +4,7 @@ class Home extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="m-3">
         <h1>This is home page</h1>
       </div>
     );

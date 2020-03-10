@@ -22,21 +22,20 @@ class Users extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>This is Products page </h1>
+      <div className="container mt-3 w-40">
+        <h1>This is Users page </h1>
         <table className="table">
-          <thead>
+          <thead className="App-nav">
             <tr>
               <th>Name</th>
-              <th>Price</th>
-              <th>Description</th>
-              <th>Entry Date</th>
+              <th>E-mail id</th>
             </tr>
           </thead>
           <tbody>
             {this.state.Users.map(user => (
               <tr key={user._id}>
                 <td>{user.name}</td>
+                <td>{user.email}</td>
                 {/* <td>{product.price} </td> */}
               </tr>
             ))}

@@ -23,10 +23,10 @@ class Products extends Component {
   render() {
     console.log("products", this.state.Products);
     return (
-      <div className="container">
+      <div className="container mt-3 ">
         <h1>This is Products page </h1>
-        <table className="table">
-          <thead>
+        <table className="table  ">
+          <thead className="App-nav  ">
             <tr>
               <th>Name</th>
               <th>Price</th>
@@ -34,7 +34,7 @@ class Products extends Component {
               <th>Entry Date</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-color">
             {this.state.Products.map(product => (
               <tr key={product._id}>
                 <td>{product.name}</td>
