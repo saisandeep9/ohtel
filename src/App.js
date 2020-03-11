@@ -8,7 +8,7 @@ import Products from "./components/products";
 import Users from "./components/users";
 import "./App.css";
 import "./background.css";
-import Registration from "./components/registration";
+import Signup from "./components/signup";
 
 class App extends Component {
   state = {};
@@ -23,7 +23,7 @@ class App extends Component {
           {/* <Home /> */}
           <Route path="/products" exact component={Products} />
           <Route path="/users" exact component={Users} />
-          <Route path="/registration" exact component={Registration} />
+          <Route path="/signup" exact component={Signup} />
           <Route path="/notFound" component={NotFound} />
           <Redirect to="/notFound" />
           {/* <NotFound /> */}

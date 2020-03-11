@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import getProducts from "../data/products";
+
 import axios from "axios";
-import config from "../config.json";
-import http from "../data/httpService";
 
 class Users extends Component {
   state = {

@@ -1,26 +1,27 @@
 import React from "react";
 
 const Input = ({
-  obligatory = false,
+  id,
   type,
-  name,
   label,
   value,
+  placeholder,
   onChange,
   autoFocus,
+  obligatory = false,
   error
 }) => {
   const styleAsterisk = { color: "red" };
   return (
     <div className="form-group">
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       {obligatory && <span style={styleAsterisk}>*</span>}
       <input
+        id={id}
         type={type}
         value={value}
-        name={name}
+        placeholder={placeholder}
         onChange={onChange}
-        id={name}
         className="form-control"
         autoFocus={autoFocus ? true : false}
       />
