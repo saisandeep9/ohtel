@@ -8,19 +8,19 @@ class Signup extends Component {
   state = {
     data: {
       name: "",
-      email: "",
-      password: ""
+      "e-mail": "",
+      password: "",
     },
-    errors: {}
+    errors: {},
   };
 
   schema = {
     name: Joi.string().required(),
-    email: Joi.string().required(),
-    password: Joi.string().required()
+    "e-mail": Joi.string().required(),
+    password: Joi.string().required(),
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const errors = this.validate();
     this.setState({ errors: errors || {} });
@@ -68,9 +68,9 @@ class Signup extends Component {
 
   doSubmit = async () => {
     const success = await userService.register(this.state.data);
-
+    console.log("succes", success);
     if (success) {
-      window.location = "/";
+      // window.location = "/";
     }
   };
 
@@ -93,7 +93,7 @@ class Signup extends Component {
           />
 
           <Input
-            id="email"
+            id="e-mail"
             label="Email address"
             type="text"
             value={data.email}
@@ -104,7 +104,7 @@ class Signup extends Component {
 
           <Input
             id="password"
-            label="Email address"
+            label="Password"
             type="password"
             value={data.password}
             placeholder="Password"
