@@ -68,7 +68,7 @@ class Signup extends Component {
 
   doSubmit = async () => {
     const success = await userService.register(this.state.data);
-    console.log("succes", success);
+    console.log("data", this.state.data);
     if (success) {
       // window.location = "/";
     }
@@ -78,40 +78,73 @@ class Signup extends Component {
     const { data, errors } = this.state;
 
     return (
-      <div className="container my-5 ">
-        <form onSubmit={this.handleSubmit}>
-          <h1 className="text-center"> Sign up</h1>
-          <Input
-            id="name"
-            label="Name"
-            type="text"
-            value={data.name}
-            placeholder="Name"
-            autoFocus="true"
-            onChange={this.handleChange}
-            error={errors.name}
-          />
+      <div>
+        <h2 className>welcome E-commerce website</h2>
+        <div
+          className="container m-5 box  float-right "
+          style={{ width: "35%" }}
+        >
+          <form onSubmit={this.handleSubmit}>
+            <h1 className="text-center"> Sign up</h1>
+            <Input
+              id="name"
+              label="Name"
+              type="text"
+              value={data.name}
+              placeholder="Name"
+              autoFocus="true"
+              onChange={this.handleChange}
+              error={errors.name}
+              // className=""
+            />
 
-          <Input
-            id="e-mail"
-            label="Email address"
-            type="text"
-            value={data.email}
-            placeholder="Enter email"
-            onChange={this.handleChange}
-            error={errors.email}
-          />
+            <Input
+              id="e-mail"
+              label="Email address"
+              type="text"
+              value={data["e-mail"]}
+              placeholder="Enter email"
+              onChange={this.handleChange}
+              error={errors["e-mail"]}
+            />
 
-          <Input
-            id="password"
-            label="Password"
-            type="password"
-            value={data.password}
-            placeholder="Password"
-            onChange={this.handleChange}
-            error={errors.password}
-          />
-          {/* <div className="form-group">
+            <Input
+              id="password"
+              label="Password"
+              type="password"
+              value={data.password}
+              placeholder="Password"
+              onChange={this.handleChange}
+              error={errors.password}
+            />
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios1"
+                value="option1"
+                checked
+              />
+              <label class="form-check-label" for="exampleRadios1">
+                Default radio
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios2"
+                value="option2"
+              />
+              <label class="form-check-label" for="exampleRadios2">
+                Second default radio
+              </label>
+            </div>
+
+            {/* <div className="form-group">
             <label>Password</label>
             <input
               type="password"
@@ -123,10 +156,11 @@ class Signup extends Component {
             ></input>
           </div> */}
 
-          <button type="submit" className="btn btn-primary">
-            Sign up
-          </button>
-        </form>
+            <button type="submit" className=" btn btn-primary m-3">
+              Sign up
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

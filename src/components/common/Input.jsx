@@ -9,11 +9,11 @@ const Input = ({
   onChange,
   autoFocus,
   obligatory = false,
-  error
+  error,
 }) => {
   const styleAsterisk = { color: "red" };
   return (
-    <div className="form-group">
+    <div className="form-group m-2">
       <label htmlFor={id}>{label}</label>
       {obligatory && <span style={styleAsterisk}>*</span>}
       <input
@@ -22,7 +22,7 @@ const Input = ({
         value={value}
         placeholder={placeholder}
         onChange={onChange}
-        className="form-control"
+        className="form-control "
         autoFocus={autoFocus ? true : false}
       />
 

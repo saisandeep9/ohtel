@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-
+import ListGroup from "./common/listgroup";
 import axios from "axios";
 
 class Products extends Component {
   state = {
     Products: [],
-    categories: []
+    Categories: [],
   };
 
   async componentDidMount() {
@@ -15,32 +15,44 @@ class Products extends Component {
       process.env.REACT_APP_API_URL + `/products`
     );
 
-    this.setState({ Products: products });
+    const { data: categories } = await axios.get(
+      process.env.REACT_APP_API_URL + `/categorys`
+    );
+
+    this.setState({ Products: products, Categories: categories });
   }
 
   render() {
-    console.log("products", this.state.Products);
+    // console.log("products", this.state.Products);
     return (
-      <div className="container mt-3 ">
-        <h1>This is Products page </h1>
-        <table className="table  ">
-          <thead className="App-nav  ">
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Description</th>
-              <th>Entry Date</th>
-            </tr>
-          </thead>
-          <tbody className="text-color">
-            {this.state.Products.map(product => (
-              <tr key={product._id}>
-                <td>{product.name}</td>
-                <td>{product.price} </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="mt-2 ">
+        <div className="row ">
+          <div className="col-2">
+            <ListGroup items={this.state.Categories} />
+            {/* {this.state.Categories.map((categorie) => categorie.name)} */}
+          </div>
+          <div className="col box ">
+            <h1>This is Products page </h1>
+            <table className="table  ">
+              <thead className="App-nav  ">
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  {/* <th>Description</th>
+                  <th>Entry Date</th> */}
+                </tr>
+              </thead>
+              <tbody className="text-color ">
+                {this.state.Products.map((product) => (
+                  <tr key={product._id} className="mouse-hover">
+                    <td>{product.name}</td>
+                    <td>{product.price} </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     );
   }
