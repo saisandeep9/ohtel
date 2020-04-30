@@ -70,7 +70,7 @@ class Signup extends Component {
     const success = await userService.register(this.state.data);
     console.log("data", this.state.data);
     if (success) {
-      // window.location = "/";
+      window.location = "/signup";
     }
   };
 
@@ -79,72 +79,77 @@ class Signup extends Component {
 
     return (
       <div>
-        <h2 className>welcome E-commerce website</h2>
-        <div
-          className="container m-5 box  float-right "
-          style={{ width: "35%" }}
-        >
-          <form onSubmit={this.handleSubmit}>
-            <h1 className="text-center"> Sign up</h1>
-            <Input
-              id="name"
-              label="Name"
-              type="text"
-              value={data.name}
-              placeholder="Name"
-              autoFocus="true"
-              onChange={this.handleChange}
-              error={errors.name}
-              // className=""
-            />
+        <div className="row m-5">
+          <div className="col-8 text-center">
+            <h2 className>welcome E-commerce website</h2>
+          </div>
 
-            <Input
-              id="e-mail"
-              label="Email address"
-              type="text"
-              value={data["e-mail"]}
-              placeholder="Enter email"
-              onChange={this.handleChange}
-              error={errors["e-mail"]}
-            />
+          <div className="col-4">
+            <div
+              className="container  box  float-right "
+              // style={{ width: "0%" }}
+            >
+              <form onSubmit={this.handleSubmit}>
+                <h1 className="text-center"> Sign up</h1>
+                <Input
+                  id="name"
+                  label="Name"
+                  type="text"
+                  value={data.name}
+                  placeholder="Name"
+                  autoFocus="true"
+                  onChange={this.handleChange}
+                  error={errors.name}
+                  // className=""
+                />
 
-            <Input
-              id="password"
-              label="Password"
-              type="password"
-              value={data.password}
-              placeholder="Password"
-              onChange={this.handleChange}
-              error={errors.password}
-            />
+                <Input
+                  id="e-mail"
+                  label="Email address"
+                  type="text"
+                  value={data["e-mail"]}
+                  placeholder="Enter email"
+                  onChange={this.handleChange}
+                  error={errors["e-mail"]}
+                />
 
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
-                value="option1"
-                checked
-              />
-              <label class="form-check-label" for="exampleRadios1">
-                Default radio
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios2"
-                value="option2"
-              />
-              <label class="form-check-label" for="exampleRadios2">
-                Second default radio
-              </label>
-            </div>
+                <Input
+                  id="password"
+                  label="Password"
+                  type="password"
+                  value={data.password}
+                  placeholder="Password"
+                  onChange={this.handleChange}
+                  error={errors.password}
+                />
 
-            {/* <div className="form-group">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    id="exampleRadios1"
+                    value="option1"
+                    checked
+                  />
+                  <label class="form-check-label" for="exampleRadios1">
+                    Default radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    id="exampleRadios2"
+                    value="option2"
+                  />
+                  <label class="form-check-label" for="exampleRadios2">
+                    Second default radio
+                  </label>
+                </div>
+
+                {/* <div className="form-group">
             <label>Password</label>
             <input
               type="password"
@@ -155,11 +160,17 @@ class Signup extends Component {
               onChange={this.handleChange}
             ></input>
           </div> */}
-
-            <button type="submit" className=" btn btn-primary m-3">
-              Sign up
-            </button>
-          </form>
+                <center>
+                  <button
+                    type="submit"
+                    className=" btn btn-primary  btn-block mb-3 mt-2"
+                  >
+                    Sign up
+                  </button>
+                </center>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     );
