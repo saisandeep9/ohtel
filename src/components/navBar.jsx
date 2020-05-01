@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-dark  navbar-expand-sm App-nav box">
+      <nav className="navbar navbar-dark  navbar-expand-sm App-nav box ">
         <ul className="navbar-nav    ">
           <li className="nav-item active">
             <Link to={"/"} className="  nav-link">
