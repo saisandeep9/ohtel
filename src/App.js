@@ -6,6 +6,7 @@ import NotFound from "./components/notFound";
 import NavBar from "./components/navBar";
 import Products from "./components/products";
 import Users from "./components/users";
+import AddingProduct from "./components/addingProducts";
 import "./App.css";
 import "./background.css";
 import Signup from "./components/signup";
@@ -18,6 +19,7 @@ class App extends Component {
 
       <div className="m-2">
         <NavBar />
+
         <Switch>
           <Route path="/" exact component={Home} />
           {/* <Home /> */}
@@ -25,6 +27,7 @@ class App extends Component {
           <Route path="/users" exact component={Users} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/notFound" component={NotFound} />
+          <Route path="/addingProducts" exact component={AddingProduct} />
           <Redirect to="/notFound" />
           {/* <NotFound /> */}
         </Switch>

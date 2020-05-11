@@ -6,6 +6,7 @@ const Input = ({
   label,
   value,
   placeholder,
+  className,
   onChange,
   autoFocus,
   obligatory = false,
@@ -22,7 +23,7 @@ const Input = ({
         value={value}
         placeholder={placeholder}
         onChange={onChange}
-        className="form-control "
+        className={className}
         autoFocus={autoFocus ? true : false}
       />
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ListGroup from "./common/listgroup";
 import axios from "axios";
+import { Link, NavLink } from "react-router-dom";
 
 class Products extends Component {
   state = {
@@ -32,6 +33,9 @@ class Products extends Component {
             {/* {this.state.Categories.map((categorie) => categorie.name)} */}
           </div>
           <div className="col box ">
+            <NavLink className="nav-link " to="/addingProducts">
+              <button className="mt-2">Adding products</button>
+            </NavLink>
             <h1>This is Products page </h1>
             <table className="table  ">
               <thead className="App-nav  ">

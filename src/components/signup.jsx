@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import Validation from "./common/validation";
 
 import * as userService from "../services/userService";
 import Input from "./common/Input";
 import Joi from "joi-browser";
 
-class Signup extends Component {
+class Signup extends Validation {
   state = {
     data: {
       name: "",
@@ -15,40 +16,9 @@ class Signup extends Component {
   };
 
   schema = {
-    name: Joi.string().required(),
+    name: Joi.string().required().min(6),
     "e-mail": Joi.string().required(),
-    password: Joi.string().required(),
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const errors = this.validate();
-    this.setState({ errors: errors || {} });
-
-    // if (Object.keys(errors).length !== 0) return;
-
-    //calling back end
-    // console.log("data", this.state.data);
-    // console.log("calling back end");
-    this.doSubmit();
-  };
-
-  handleChange = ({ currentTarget: input }) => {
-    // console.log(e.currentTarget.value);
-    const data = { ...this.state.data };
-    data[input.id] = input.value;
-    this.setState({ data });
-  };
-
-  validate = () => {
-    const { data } = this.state;
-    const result = Joi.validate(data, this.schema, { abortEarly: false });
-    if (!result.error) return null;
-    const errors = {};
-    for (let item of result.error.details) {
-      errors[item.path[0]] = item.message;
-    }
-    return errors;
+    password: Joi.string().required().min(8),
   };
 
   // validate = () => {
@@ -61,8 +31,7 @@ class Signup extends Component {
 
   //   if (data.name.trim() === "") errors.name = "name is requrired";
   //   if (data.email.trim() === "") errors.email = "Enter the E-mail address";
-  //   if (data.password.trim() === "")
-  //     errors.password = "password is requrired";
+  //   if (data.password.trim() === "") errors.password = "password is requrired";
   //   return Object.keys(errors).length === 0 ? {} : errors;
   // };
 
@@ -81,7 +50,7 @@ class Signup extends Component {
       <div>
         <div className="row m-5">
           <div className="col-8 text-center">
-            <h2 className>welcome E-commerce website</h2>
+            <h2 className="">welcome E-commerce website</h2>
           </div>
 
           <div className="col-4">
@@ -97,6 +66,7 @@ class Signup extends Component {
                   type="text"
                   value={data.name}
                   placeholder="Name"
+                  className="form-control "
                   autoFocus="true"
                   onChange={this.handleChange}
                   error={errors.name}
@@ -109,6 +79,7 @@ class Signup extends Component {
                   type="text"
                   value={data["e-mail"]}
                   placeholder="Enter email"
+                  className="form-control "
                   onChange={this.handleChange}
                   error={errors["e-mail"]}
                 />
@@ -119,32 +90,33 @@ class Signup extends Component {
                   type="password"
                   value={data.password}
                   placeholder="Password"
+                  className="form-control "
                   onChange={this.handleChange}
                   error={errors.password}
                 />
 
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="exampleRadios"
                     id="exampleRadios1"
                     value="option1"
                     checked
                   />
-                  <label class="form-check-label" for="exampleRadios1">
+                  <label className="form-check-label" for="exampleRadios1">
                     Default radio
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="exampleRadios"
                     id="exampleRadios2"
                     value="option2"
                   />
-                  <label class="form-check-label" for="exampleRadios2">
+                  <label className="form-check-label" for="exampleRadios2">
                     Second default radio
                   </label>
                 </div>
