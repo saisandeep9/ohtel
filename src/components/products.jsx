@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ListGroup from "./common/listgroup";
 import axios from "axios";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Products extends Component {
   state = {
@@ -10,21 +10,20 @@ class Products extends Component {
   };
 
   async componentDidMount() {
-    // const { data: products } = await axios.get(config.apiUrl + "/products");
-
-    const { data: products } = await axios.get(
-      process.env.REACT_APP_API_URL + `/products`
-    );
+    const { data: Products } = await axios
+      .get(process.env.REACT_APP_API_URL + `/products`)
+      .then();
 
     const { data: categories } = await axios.get(
-      process.env.REACT_APP_API_URL + `/categorys`
+      process.env.REACT_APP_API_URL + `/categories`
     );
 
-    this.setState({ Products: products, Categories: categories });
+    this.setState({ Products, Categories: categories });
+    console.log("products", Products);
   }
 
   render() {
-    // console.log("products", this.state.Products);
+    console.log("products", this.state.Products);
     return (
       <div className="mt-2 ">
         <div className="row ">

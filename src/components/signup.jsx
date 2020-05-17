@@ -61,7 +61,7 @@ class Signup extends Validation {
               <form onSubmit={this.handleSubmit}>
                 <h1 className="text-center"> Sign up</h1>
                 <Input
-                  id="name"
+                  name="name"
                   label="Name"
                   type="text"
                   value={data.name}
@@ -74,7 +74,7 @@ class Signup extends Validation {
                 />
 
                 <Input
-                  id="e-mail"
+                  name="e-mail"
                   label="Email address"
                   type="text"
                   value={data["e-mail"]}
@@ -85,7 +85,7 @@ class Signup extends Validation {
                 />
 
                 <Input
-                  id="password"
+                  name="password"
                   label="Password"
                   type="password"
                   value={data.password}

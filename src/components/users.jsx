@@ -9,12 +9,10 @@ class Users extends Component {
   };
 
   async componentDidMount() {
-    // const { data: products } = await axios.get(config.apiUrl + "/products");
-
     const { data: users } = await axios.get(
-      process.env.REACT_APP_API_URL + `/allusers`
+      process.env.REACT_APP_API_URL + `/users`
     );
-    console.log("user", users);
+
     this.setState({ Users: users });
   }
 

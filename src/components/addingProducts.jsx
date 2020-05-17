@@ -2,7 +2,6 @@ import React from "react";
 import Input from "./common/Input";
 import Joi from "joi-browser";
 import Validation from "./common/validation";
-import axios from "axios";
 
 class AddingProduct extends Validation {
   state = {

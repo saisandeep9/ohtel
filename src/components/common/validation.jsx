@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Joi from "joi-browser";
 
 class Validation extends Component {
@@ -32,13 +32,13 @@ class Validation extends Component {
 
     //set values in state
     const data = { ...this.state.data };
-    data[input.id] = input.value;
+    data[input.name] = input.value;
     this.setState({ data, errors });
   };
 
-  validateProperty({ id, value }) {
-    const objToValidate = { [id]: value };
-    const schema = { [id]: this.schema[id] };
+  validateProperty({ name, value }) {
+    const objToValidate = { [name]: value };
+    const schema = { [name]: this.schema[name] };
     const { error } = Joi.validate(objToValidate, schema);
     return error ? error.details[0].message : null;
   }

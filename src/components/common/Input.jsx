@@ -1,7 +1,7 @@
 import React from "react";
 
 const Input = ({
-  id,
+  name,
   type,
   label,
   value,
@@ -15,10 +15,10 @@ const Input = ({
   const styleAsterisk = { color: "red" };
   return (
     <div className="form-group m-2">
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={name}>{label}</label>
       {obligatory && <span style={styleAsterisk}>*</span>}
       <input
-        id={id}
+        name={name}
         type={type}
         value={value}
         placeholder={placeholder}
