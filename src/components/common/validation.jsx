@@ -27,8 +27,8 @@ class Validation extends Component {
     //validation
     const errors = { ...this.state.errors };
     const errorMessage = this.validateProperty(input);
-    if (errorMessage) errors[input.id] = errorMessage;
-    else delete errors[input.id];
+    if (errorMessage) errors[input.name] = errorMessage;
+    else delete errors[input.name];
 
     //set values in state
     const data = { ...this.state.data };

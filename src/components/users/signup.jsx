@@ -1,15 +1,15 @@
 import React from "react";
-import Validation from "./common/validation";
+import Validation from "../common/validation";
 
-import * as userService from "../services/userService";
-import Input from "./common/Input";
+import * as userService from "../../services/userService";
+import Input from "../common/Input";
 import Joi from "joi-browser";
 
 class Signup extends Validation {
   state = {
     data: {
       name: "",
-      "e-mail": "",
+      email: "",
       password: "",
     },
     errors: {},
@@ -17,7 +17,7 @@ class Signup extends Validation {
 
   schema = {
     name: Joi.string().required().min(6),
-    "e-mail": Joi.string().required(),
+    email: Joi.string().required(),
     password: Joi.string().required().min(8),
   };
 
@@ -74,14 +74,14 @@ class Signup extends Validation {
                 />
 
                 <Input
-                  name="e-mail"
+                  name="email"
                   label="Email address"
                   type="text"
-                  value={data["e-mail"]}
+                  value={data.email}
                   placeholder="Enter email"
                   className="form-control "
                   onChange={this.handleChange}
-                  error={errors["e-mail"]}
+                  error={errors.email}
                 />
 
                 <Input

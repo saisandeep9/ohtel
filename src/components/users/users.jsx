@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import auth from "../../services/authService";
 
 import axios from "axios";
 
@@ -31,7 +32,7 @@ class Users extends Component {
             {this.state.Users.map((user) => (
               <tr key={user._id}>
                 <td>{user.name}</td>
-                <td>{user["e-mail"]}</td>
+                <td>{user.email}</td>
                 {/* <td>{product.price} </td> */}
               </tr>
             ))}
