@@ -1,11 +1,22 @@
-// import http from "./httpService";
-import axios from "axios";
+import http from "./httpService";
+
 function userUrl() {
   return process.env.REACT_APP_API_URL + "/users";
 }
 
+function profileUrl() {
+  return process.env.REACT_APP_API_URL + "/me";
+}
 export function register(user) {
-  return axios.post(userUrl(), user);
+  return http.post(userUrl(), user);
+}
+
+export function getusers() {
+  return http.get(userUrl());
+}
+
+export function getprofile() {
+  return http.get(profileUrl());
 }
 
 //  const { data: users } = await axios.get(

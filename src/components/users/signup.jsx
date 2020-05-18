@@ -11,6 +11,7 @@ class Signup extends Validation {
       name: "",
       email: "",
       password: "",
+      gender: "",
     },
     errors: {},
   };
@@ -19,6 +20,7 @@ class Signup extends Validation {
     name: Joi.string().required().min(6),
     email: Joi.string().required(),
     password: Joi.string().required().min(8),
+    gender: Joi.string().required(),
   };
 
   // validate = () => {
@@ -36,8 +38,9 @@ class Signup extends Validation {
   // };
 
   doSubmit = async () => {
+    // console.log(this.state.data);
     const success = await userService.register(this.state.data);
-    console.log("data", this.state.data);
+
     if (success) {
       window.location = "/signup";
     }
@@ -48,80 +51,81 @@ class Signup extends Validation {
 
     return (
       <div>
-        <div className="row m-5">
-          <div className="col-8 text-center">
+        <div className="row m-5 ">
+          <div className="col-8 text-center box " style={{ width: "auto" }}>
             <h2 className="">welcome E-commerce website</h2>
           </div>
 
           <div className="col-4">
-            <div
-              className="container  box  float-right "
-              // style={{ width: "0%" }}
+            <form
+              onSubmit={this.handleSubmit}
+              className="p-3 box "
+              style={{ width: "300px" }}
             >
-              <form onSubmit={this.handleSubmit}>
-                <h1 className="text-center"> Sign up</h1>
-                <Input
-                  name="name"
-                  label="Name"
-                  type="text"
-                  value={data.name}
-                  placeholder="Name"
-                  className="form-control "
-                  autoFocus="true"
-                  onChange={this.handleChange}
-                  error={errors.name}
-                  // className=""
-                />
+              <h1 className="text-center"> Sign up</h1>
+              <Input
+                name="name"
+                label="Name"
+                type="text"
+                value={data.name}
+                placeholder="Name"
+                className="form-control "
+                autoFocus="true"
+                onChange={this.handleChange}
+                error={errors.name}
+                // className=""
+              />
 
-                <Input
-                  name="email"
-                  label="Email address"
-                  type="text"
-                  value={data.email}
-                  placeholder="Enter email"
-                  className="form-control "
-                  onChange={this.handleChange}
-                  error={errors.email}
-                />
+              <Input
+                name="email"
+                label="Email address"
+                type="text"
+                value={data.email}
+                placeholder="Enter email"
+                className="form-control "
+                onChange={this.handleChange}
+                error={errors.email}
+              />
 
-                <Input
-                  name="password"
-                  label="Password"
-                  type="password"
-                  value={data.password}
-                  placeholder="Password"
-                  className="form-control "
-                  onChange={this.handleChange}
-                  error={errors.password}
-                />
+              <Input
+                name="password"
+                label="Password"
+                type="password"
+                value={data.password}
+                placeholder="Password"
+                className="form-control "
+                onChange={this.handleChange}
+                error={errors.password}
+              />
 
-                <div className="form-check">
+              <div className="radio">
+                <label>
                   <input
-                    className="form-check-input"
+                    name="gender"
                     type="radio"
-                    name="exampleRadios"
-                    id="exampleRadios1"
-                    value="option1"
-                    checked
+                    value="Male"
+                    checked={data.gender === "Male"}
+                    onChange={this.handleChange}
+                    error={errors.gender}
                   />
-                  <label className="form-check-label" for="exampleRadios1">
-                    Default radio
-                  </label>
-                </div>
-                <div className="form-check">
+                  Male
+                </label>
+              </div>
+              <div className="radio">
+                <label>
                   <input
-                    className="form-check-input"
+                    name="gender"
                     type="radio"
-                    name="exampleRadios"
-                    id="exampleRadios2"
-                    value="option2"
+                    value="Female"
+                    checked={data.gender === "Female"}
+                    onChange={this.handleChange}
+                    error={errors.gender}
                   />
-                  <label className="form-check-label" for="exampleRadios2">
-                    Second default radio
-                  </label>
-                </div>
+                  Female
+                </label>
+              </div>
 
-                {/* <div className="form-group">
+              {/* <div className="form-group">
             <label>Password</label>
             <input
               type="password"
@@ -132,16 +136,15 @@ class Signup extends Validation {
               onChange={this.handleChange}
             ></input>
           </div> */}
-                <center>
-                  <button
-                    type="submit"
-                    className=" btn btn-primary  btn-block mb-3 mt-2"
-                  >
-                    Sign up
-                  </button>
-                </center>
-              </form>
-            </div>
+              <center>
+                <button
+                  type="submit"
+                  className=" btn btn-primary  btn-block mb-3 mt-2"
+                >
+                  Sign up
+                </button>
+              </center>
+            </form>
           </div>
         </div>
       </div>

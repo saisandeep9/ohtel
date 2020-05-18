@@ -14,6 +14,7 @@ import "./App.css";
 import "./background.css";
 import Signup from "./components/users/signup";
 import Logout from "./components/users/logout";
+import Profile from "./components/users/profile";
 
 class App extends Component {
   state = { user: {} };
@@ -34,6 +35,7 @@ class App extends Component {
             {this.state.user && (
               <>
                 <Route path="/home" exact component={Home} />
+                <Route path="/profile" exact component={Profile} />
                 <Route path="/products" exact component={Products} />
                 <Route path="/users" exact component={Users} />
                 <Route path="/addingProducts" exact component={AddingProduct} />

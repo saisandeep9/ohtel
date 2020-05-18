@@ -1,20 +1,15 @@
-// import http from "./httpService";
+import http from "./httpService";
 import jwtDecode from "jwt-decode";
-import axios from "axios";
 
 const tokenKey = "token";
-setJwt(getToken());
-function setJwt(jwt) {
-  axios.defaults.headers.common["x-auth-token"] = jwt;
-}
+http.setJwt(getToken());
 
 function loginUrl() {
   return process.env.REACT_APP_API_URL + "/auth";
 }
 
 export async function login(data) {
-  console.log(data);
-  const response = await axios.post(loginUrl(), data);
+  const response = await http.post(loginUrl(), data);
   console.log(response);
   if (response && response.headers["x-auth-token"]) {
     const userToken = response.headers["x-auth-token"];

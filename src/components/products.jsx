@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import * as productService from "../services/productService";
 import ListGroup from "./common/listgroup";
 import axios from "axios";
+import http from "../services/httpService";
 import { NavLink } from "react-router-dom";
 
 class Products extends Component {
@@ -10,16 +12,10 @@ class Products extends Component {
   };
 
   async componentDidMount() {
-    const { data: Products } = await axios
-      .get(process.env.REACT_APP_API_URL + `/products`)
-      .then();
+    const { data: Products } = await productService.getproducts();
 
-    const { data: categories } = await axios.get(
-      process.env.REACT_APP_API_URL + `/categories`
-    );
-
+    const { data: categories } = await productService.getcategories();
     this.setState({ Products, Categories: categories });
-    console.log("products", Products);
   }
 
   render() {

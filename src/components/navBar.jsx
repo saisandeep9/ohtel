@@ -27,6 +27,11 @@ const NavBar = ({ user }) => {
                 </NavLink>
               </li>
               <li className="nav-item ">
+                <NavLink className="nav-link " to="/profile">
+                  <i className="fa">My profile</i>
+                </NavLink>
+              </li>
+              <li className="nav-item ">
                 <NavLink className="nav-link " to="/logout">
                   <i className="fa fa-sign-in"> Logout</i>
                 </NavLink>

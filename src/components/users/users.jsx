@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import auth from "../../services/authService";
-
-import axios from "axios";
+import * as userService from "../../services/userService";
 
 class Users extends Component {
   state = {
@@ -10,11 +8,9 @@ class Users extends Component {
   };
 
   async componentDidMount() {
-    const { data: users } = await axios.get(
-      process.env.REACT_APP_API_URL + `/users`
-    );
+    const success = await userService.getusers();
 
-    this.setState({ Users: users });
+    this.setState({ Users: success.data });
   }
 
   render() {
