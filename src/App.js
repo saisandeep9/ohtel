@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 
 import { Route, Redirect, Switch } from "react-router-dom";
-import CoverPage from "./components/coverPage";
-import Home from "./components/home";
-import NotFound from "./components/notFound";
+// import CoverPage from "./components/coverPage";
+// import Home from "./components/home";
+// import NotFound from "./components/notFound";
 import NavBar from "./components/navBar";
-import Products from "./components/products";
-import Users from "./components/users/users";
-import AddingProduct from "./components/addingProducts";
+// import Products from "./components/products";
+// import Users from "./components/users/users";
+// import AddingProduct from "./components/addingProducts";
 import Login from "./components/users/login";
 import auth from "./services/authService";
 import "./App.css";
 import "./background.css";
 import Signup from "./components/users/signup";
-import Logout from "./components/users/logout";
-import Profile from "./components/users/profile";
+// import Logout from "./components/users/logout";
+// import Profile from "./components/users/profile";
 import MainPage from "./components/mainPage";
 // import Google from "./components/google"
 
