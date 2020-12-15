@@ -1,58 +1,69 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavBar = ({ user }) => {
+const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-dark  navbar-expand-sm App-nav box ">
-        <ul className="navbar-nav    ">
-          {user && (
-            <>
-              {" "}
-              <li className="nav-item ">
-                <NavLink to={"/home"} className="  nav-link">
-                  <i className="fa fa-home"> Home</i>
+      <nav
+        className="navbar navbar-expand-lg navbar-light bg-ligh justify-content-around"
+        style={{ padding: "0px" }}
+      >
+        <div>
+          {/* <img
+            src="./log.jpg"
+            alt="log"
+            style={{
+              width: "60px",
+              height: "60px",
+              borderRadius: " 50%",
+              marginRight: "20px",
+              marginTop: "-40px",
+            }}
+          /> */}
+          <div className="navbar-brand">
+            <div
+              style={{
+                fontSize: "18px",
+                fontWeight: "733",
+                lineHeight: "19px",
+              }}
+            >
+              E-commerces
+            </div>
+            <div style={{ fontSize: "13px", fontWeight: "433" }}>
+              UI & UX Designer
+            </div>
+          </div>
+        </div>
 
-                  <span className="sr-only">(current)</span>
-                </NavLink>
-              </li>
-              <li className="nav-item ">
-                <NavLink to={"/products"} className="  nav-link">
-                  Products<span className="sr-only">(current)</span>
-                </NavLink>
-              </li>
-              <li className="nav-item ">
-                <NavLink to={"/users"} className="  nav-link">
-                  <i className="fa fa-users"> Users</i>
-                </NavLink>
-              </li>
-              <li className="nav-item ">
-                <NavLink className="nav-link " to="/profile">
-                  <i className="fa">My profile</i>
-                </NavLink>
-              </li>
-              <li className="nav-item ">
-                <NavLink className="nav-link " to="/logout">
-                  <i className="fa fa-sign-in"> Logout</i>
-                </NavLink>
-              </li>
-            </>
-          )}
-
-          {!user && (
-            <>
-              <li className="nav-item ">
-                <NavLink className="nav-link " to="/signup">
-                  <i className="fa fa-sign-in"> Sign up</i>
-                </NavLink>
-              </li>
-              <li className="nav-item ">
-                <NavLink className="nav-link " to="/login">
-                  <i className="fa fa-sign-in"> Log in</i>
-                </NavLink>
-              </li>
-            </>
-          )}
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <NavLink to={"http://localhost:3000/"} className="nav-link">
+              Home
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to={"http://localhost:3000/"} className="nav-link">
+              Products
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to={"http://localhost:3000/"} className="nav-link">
+              About
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to={"http://localhost:3000/"} className="nav-link">
+            Contact
+            </NavLink>
+          </li>
+          <button
+            className="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+            style={{ borderRadius: "40px", padding: "5px 20px" }}
+          >
+            Search
+          </button>
         </ul>
       </nav>
     </div>

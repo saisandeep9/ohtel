@@ -27,7 +27,7 @@ class Products extends Component {
             <ListGroup items={this.state.Categories} />
             {/* {this.state.Categories.map((categorie) => categorie.name)} */}
           </div>
-          <div className="col box ">
+          <div >
             <NavLink className="nav-link " to="/addingProducts">
               <button className="mt-2">Adding products</button>
             </NavLink>

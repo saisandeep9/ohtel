@@ -2,7 +2,7 @@ import React from "react";
 import Validation from "../common/validation";
 
 import * as userService from "../../services/userService";
-import Input from "../common/Input";
+import Input from "../common/input";
 import Joi from "joi-browser";
 
 class Signup extends Validation {
@@ -38,12 +38,14 @@ class Signup extends Validation {
   // };
 
   doSubmit = async () => {
-    // console.log(this.state.data);
+    console.log(this.state.data);
     const success = await userService.register(this.state.data);
-
-    if (success) {
-      window.location = "/signup";
-    }
+    // console.log(window.location);
+    // console.log(this.props);
+      if (success) {
+        window.location = "/";
+        // console.log(window.location);
+      }
   };
 
   render() {
@@ -52,15 +54,20 @@ class Signup extends Validation {
     return (
       <div>
         <div className="row m-5 ">
-          <div className="col-8 text-center box " style={{ width: "auto" }}>
-            <h2 className="">welcome E-commerce website</h2>
+          <div
+            className="col-sm-8 text-center "
+            // style={{ width: "auto" }}
+          >
+            <div  style={{ width: "100%" }}>
+              <h2 className="">welcome E-commerce website</h2>
+            </div>
           </div>
 
           <div className="col-4">
             <form
               onSubmit={this.handleSubmit}
               className="p-3 box "
-              style={{ width: "300px" }}
+              style={{ width: "350px" }}
             >
               <h1 className="text-center"> Sign up</h1>
               <Input

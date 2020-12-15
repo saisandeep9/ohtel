@@ -1,11 +1,11 @@
 import React from "react";
 import Validation from "../common/validation";
-
+import Form from "../common/form";
 import auth from "../../services/authService";
-import Input from "../common/Input";
+import Input from "../common/input";
 import Joi from "joi-browser";
 
-class Login extends Validation {
+class Login extends Form {
   state = {
     data: {
       email: "",
@@ -19,28 +19,16 @@ class Login extends Validation {
     password: Joi.string().required().min(8),
   };
 
-  // validate = () => {
-  //   const { data } = this.state;
-
-  //   const result = Joi.validate(data, this.schema, { abortEarly: false });
-
-  //   console.log("joi", result);
-  //   const errors = {};
-
-  //   if (data.name.trim() === "") errors.name = "name is requrired";
-  //   if (data.email.trim() === "") errors.email = "Enter the E-mail address";
-  //   if (data.password.trim() === "") errors.password = "password is requrired";
-  //   return Object.keys(errors).length === 0 ? {} : errors;
-  // };
+  
 
   doSubmit = async () => {
-    // console.log(this.state.data);
+    console.log(this.state.data);
     const { data } = this.state;
-    const success = await auth.login(data);
-    console.log("data", success);
-    if (success) {
-      window.location = "/home";
-    }
+    // const success = await auth.login(data);
+    // console.log("data", success);
+    // if (success) {
+    //   window.location = "/home";
+    // }
   };
 
   render() {
@@ -48,14 +36,34 @@ class Login extends Validation {
 
     return (
       <div>
-        <div className="row m-5">
+
+        <div className="row">
+          <div className="col-6 bg-dark" text-center>
+              <h2 className="">welcome E-commerce website</h2>
+          </div>
+          <div className="col-6 " style={{background:"#252525"}}>
+            
+            <form onSubmit={this.handleSubmit} className="col-md-7 ">
+          <h1 className="text-center"> Login</h1>
+          {this.renderInput("email", "Email", "form-control" , true, )}
+          {this.renderInput("password", "Password", "form-control", false, "password")}
+          {this.renderButton("Login")}
+            </form>
+            </div>
+</div>
+
+
+
+
+
+        {/* <div className="row m-5">
           <div className="col-8 text-center">
             <h2 className="">welcome E-commerce website</h2>
           </div>
 
           <div className="col-4">
             <div
-              className="container  box  float-right "
+              className="container  float-right "
               // style={{ width: "0%" }}
             >
               <form onSubmit={this.handleSubmit}>
@@ -95,6 +103,10 @@ class Login extends Validation {
             </div>
           </div>
         </div>
+      
+      
+       */}
+      
       </div>
     );
   }

@@ -15,6 +15,8 @@ import "./background.css";
 import Signup from "./components/users/signup";
 import Logout from "./components/users/logout";
 import Profile from "./components/users/profile";
+import MainPage from "./components/mainPage";
+// import Google from "./components/google"
 
 class App extends Component {
   state = { user: {} };
@@ -30,6 +32,7 @@ class App extends Component {
 
       <div className="m-2">
         <NavBar user={this.state.user} />
+
         <main>
           <Switch>
             {this.state.user && (
@@ -40,21 +43,15 @@ class App extends Component {
                 <Route path="/users" exact component={Users} />
                 <Route path="/addingProducts" exact component={AddingProduct} />
                 <Route path="/logout" exact component={Logout} />
-                <Route path="/notFound" component={NotFound} />
-
-                <Redirect to="/notFound" />
               </>
             )}
-
-            {/* <Home /> */}
-            <Route path="/" exact component={CoverPage} />
-            <Route path="/signup" exact component={Signup} />
+           
+            {/* <Route path="/" exact component={CoverPage} /> */}
+            <Route path="/" exact component={MainPage} />
+            {/* <Route path="/" exact component={Google} />    */}
             <Route path="/login" exact component={Login} />
 
-            <Route path="/notFound" component={NotFound} />
-
-            <Redirect to="/notFound" />
-            {/* <NotFound /> */}
+            <Route path="/signup" exact component={Signup} />
           </Switch>
         </main>
       </div>

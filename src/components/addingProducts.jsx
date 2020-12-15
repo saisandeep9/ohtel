@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "./common/Input";
+import Input from "./common/input";
 import Joi from "joi-browser";
 import Validation from "./common/validation";
 
@@ -49,7 +49,7 @@ class AddingProduct extends Validation {
   render() {
     const { data, errors } = this.state;
     return (
-      <div className="  box  p-2 m-3" style={{ width: "30%" }}>
+      <div className=" m-3" style={{ width: "30%", padding:"20px" }}>
         <h2 className="text-center"> Adding Products</h2>
         <form onSubmit={this.handleSubmit}>
           <Input
@@ -101,24 +101,9 @@ class AddingProduct extends Validation {
           </button>
         </form>
 
-        <Input
-          id="ProductImage"
-          label="Product Image"
-          type="file"
-          value={data.ProductImage}
-          // placeholder={"ProductImage"}
-          onChange={this.fileSelectHandler}
-          error={errors.ProductImage}
-        />
+    
 
-        <form onSubmit={this.fileUploadHandler}>
-          <button
-            type="submit"
-            className=" btn btn-primary  btn-block mb-3 mt-2"
-          >
-            Submit
-          </button>
-        </form>
+      
       </div>
     );
   }
