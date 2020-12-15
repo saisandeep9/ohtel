@@ -35,7 +35,7 @@ class App extends Component {
 
         <main>
           <Switch>
-            {this.state.user && (
+            {/* {this.state.user && (
               <>
                 <Route path="/home" exact component={Home} />
                 <Route path="/profile" exact component={Profile} />
@@ -44,7 +44,7 @@ class App extends Component {
                 <Route path="/addingProducts" exact component={AddingProduct} />
                 <Route path="/logout" exact component={Logout} />
               </>
-            )}
+            )} */}
            
             {/* <Route path="/" exact component={CoverPage} /> */}
             <Route path="/" exact component={MainPage} />
