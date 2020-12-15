@@ -31,7 +31,7 @@ class App extends Component {
       // <div className="App">
 
       <div className="m-2">
-        <NavBar user={this.state.user} />
+        {/* <NavBar user={this.state.user} /> */}
 
         <main>
           <Switch>
@@ -45,13 +45,13 @@ class App extends Component {
                 <Route path="/logout" exact component={Logout} />
               </>
             )} */}
-           
+
             {/* <Route path="/" exact component={CoverPage} /> */}
             <Route path="/" exact component={MainPage} />
             {/* <Route path="/" exact component={Google} />    */}
-            <Route path="/login" exact component={Login} />
+            {/* <Route path="/login" exact component={Login} />
 
-            <Route path="/signup" exact component={Signup} />
+            <Route path="/signup" exact component={Signup} /> */}
           </Switch>
         </main>
       </div>
