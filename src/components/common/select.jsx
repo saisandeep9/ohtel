@@ -6,7 +6,7 @@ const Select = ({
   label,
   items,
   onChange,
-  error
+  error,
 }) => {
   const styleAsterisk = { color: "red" };
   return (
@@ -15,14 +15,14 @@ const Select = ({
       {obligatory && <span style={styleAsterisk}>*</span>}
 
       <select
-        id={name}
         name={name}
         value={value}
         onChange={onChange}
         className="custom-select custom-select-sm"
       >
         <option key="select" default />
-        {items.map(item => (
+
+        {items.map((item) => (
           <option key={item.value} value={item.value}>
             {item.name}
           </option>

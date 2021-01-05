@@ -5,16 +5,17 @@ class CoverPage extends Component {
 
   render() {
     const background = {
-      backgroundImage: "url(/coverPage.jpg)",
+      backgroundImage: "url(/coverPage.Png)",
       backgroundSize: " cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       width: "100%",
-      height: "400px",
+      height: "700px",
+      marginTop: "0px",
     };
     return (
       <div className="coverPage" style={background}>
-        <div
+        {/* <div
           className="text-light"
           style={{
             background: "rgb(37 37 37 / 61%)",
@@ -37,7 +38,7 @@ class CoverPage extends Component {
 
           <button className="  button">HIRE ME</button>
           <button className="  button">SEE MY RESUME</button>
-        </div>
+        </div> */}
       </div>
     );
   }

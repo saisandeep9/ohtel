@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-// import Input from "./input";
+
 import Select from "./select";
 
 class Form extends Component {
   state = {
     data: {},
-    errors: {}
+    errors: {},
   };
 
   validate = () => {
@@ -17,6 +17,7 @@ class Form extends Component {
     for (let item of result.error.details) {
       errors[item.path[0]] = item.message;
     }
+
     return errors;
   };
 
@@ -40,7 +41,7 @@ class Form extends Component {
     return error ? error.details[0].message : null;
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     //prevent the default submission of the form
     //this will prevent the complete page reload
     e.preventDefault();
@@ -52,13 +53,9 @@ class Form extends Component {
   };
 
   renderButton(label) {
-    return (
-      <button disabled={this.validate()} className="btn btn-primary">
-        {label}
-      </button>
-    );
+    return <button className="btn btn-primary">{label}</button>;
   }
-
+  //disabled={this.validate()}
   renderInput(
     name,
     label,
@@ -66,35 +63,48 @@ class Form extends Component {
     autoFocus = false,
     type = "text",
     obligatory = false
-    
   ) {
-      const { data, errors } = this.state;
-        const styleAsterisk = { color: "red" };
+    const { data, errors } = this.state;
+    const styleAsterisk = { color: "red" };
 
     return (
-    //   <Input
-    //     obligatory={obligatory}
-    //     type={type}
-    //     name={name}
-    //     label={label}
-    //     autoFocus={autoFocus}
-    //     value={data[name]}
-    //     onChange={this.handleChange}
-    //     error={errors[name]}
-    //     className={className}
-    //     />
-         <div className="form-group m-2">
-           <label htmlFor={name}>{label}</label>
-      {obligatory && <span style={styleAsterisk}>*</span>}
+      <div className="form-group mt-3">
+        <label htmlFor={name}>{label}</label>
+        {obligatory && <span style={styleAsterisk}>*</span>}
         <input
+          name={name}
+          type={type}
+          autoFocus={autoFocus ? true : false}
+          value={data[name]}
+          onChange={this.handleChange}
+          error={errors[name]}
+          className={className}
+        />
+        {/* If error is not null or truthy then return div */}
+        {errors[name] && (
+          <div className="alert alert-danger">{errors[name]}</div>
+        )}
+      </div>
+    );
+  }
+
+  renderRadio(name, label, className) {
+    const { data, errors } = this.state;
+    return (
+      <div className="radio">
+        <label>
+          <input
             name={name}
-            type={type}
-            autoFocus={autoFocus ? true : false}
-            value={data[name]}
+            type="radio"
+            value={label}
+            checked={data[name] === label}
             onChange={this.handleChange}
             error={errors[name]}
-            className={className} />
-            </div>
+            className={className}
+          />
+          {label}
+        </label>
+      </div>
     );
   }
 
@@ -102,24 +112,51 @@ class Form extends Component {
     const { data, errors } = this.state;
 
     return (
-      <Select
-        obligatory={obligatory}
-        name={name}
-        value={data[name]}
-        label={label}
-        items={items}
-        onChange={this.handleChange}
-        error={errors[name]}
-      />
+      // <Select
+      //   obligatory={obligatory}
+      //   name={name}
+      //   value={data[name]}
+      //   label={label}
+      //   items={items}
+      //   onChange={this.handleChange}
+      //   error={errors[name]}
+      // />
+      <div className="form-group mt-3">
+        <label htmlFor={name}>{label}</label>
+        <select
+          name={name}
+          value={data[name]}
+          onChange={this.handleChange}
+          className="custom-select custom-select-md"
+          error={errors[name]}
+        >
+          <option key="select" default />
+
+          {items.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.name}
+            </option>
+          ))}
+        </select>
+      </div>
     );
-    // return (
-    //   <select className="custom-select custom-select-sm">
-    //     <option selected>select category</option>
-    //     {items.map(item => (
-    //       <option value={item.value}>{item.name}</option>
-    //     ))}
-    //   </select>
-    // );
+  }
+
+  renderTextArea(name, label, className) {
+    const { data, errors } = this.state;
+    return (
+      <div>
+        <label htmlFor={name}>{label}</label>
+        <textarea
+          name={name}
+          rows="4"
+          cols="0"
+          value={data[name]}
+          onChange={this.handleChange}
+          className={className}
+        ></textarea>
+      </div>
+    );
   }
 }
 

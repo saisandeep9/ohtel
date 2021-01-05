@@ -14,7 +14,7 @@ const Input = ({
 }) => {
   const styleAsterisk = { color: "red" };
   return (
-    <div className="form-group m-2">
+    <div className="form-group m-3">
       <label htmlFor={name}>{label}</label>
       {obligatory && <span style={styleAsterisk}>*</span>}
       <input

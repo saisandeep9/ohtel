@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Home from "./home";
 import CoverPage from "./coverPage";
+import Categories from "./categories";
+import Why from "./whyus";
 
 class MainPage extends Component {
   state = {};
@@ -8,7 +10,9 @@ class MainPage extends Component {
     return (
       <div>
         <CoverPage />
+        <Categories />
         <Home />
+        <Why />
       </div>
     );
   }

@@ -4,6 +4,7 @@ import Form from "../common/form";
 import auth from "../../services/authService";
 import Input from "../common/input";
 import Joi from "joi-browser";
+import { NavLink, Link } from "react-router-dom";
 
 class Login extends Form {
   state = {
@@ -18,8 +19,6 @@ class Login extends Form {
     email: Joi.string().required(),
     password: Joi.string().required().min(8),
   };
-
-  
 
   doSubmit = async () => {
     console.log(this.state.data);
@@ -36,77 +35,65 @@ class Login extends Form {
 
     return (
       <div>
-
-        <div className="row">
-          <div className="col-6 bg-dark" text-center>
-              <h2 className="">welcome E-commerce website</h2>
-          </div>
-          <div className="col-6 " style={{background:"#252525"}}>
-            
-            <form onSubmit={this.handleSubmit} className="col-md-7 ">
-          <h1 className="text-center"> Login</h1>
-          {this.renderInput("email", "Email", "form-control" , true, )}
-          {this.renderInput("password", "Password", "form-control", false, "password")}
-          {this.renderButton("Login")}
-            </form>
-            </div>
-</div>
-
-
-
-
-
-        {/* <div className="row m-5">
-          <div className="col-8 text-center">
-            <h2 className="">welcome E-commerce website</h2>
-          </div>
-
-          <div className="col-4">
-            <div
-              className="container  float-right "
-              // style={{ width: "0%" }}
+        <div
+          className="sectio bg-dark d-flex justify-content-center align-self-center "
+          style={{
+            height: "100%",
+            marginTop: "0px",
+            minHeight: "917px",
+            backgroundImage: "url(/coverPage.Png)",
+            backgroundSize: " cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: "#252525",
+          }}
+        >
+          <div
+            className="col-md-4 "
+            style={{ backgroundColor: "rgb(123 109 109 / 62%)" }}
+          >
+            <form
+              onSubmit={this.handleSubmit}
+              className="col-md- "
+              style={{ padding: "50px 0" }}
             >
-              <form onSubmit={this.handleSubmit}>
-                <h1 className="text-center"> Login</h1>
-
-                <Input
-                  name="email"
-                  label="Email"
-                  type="text"
-                  value={data.email}
-                  placeholder="Enter email"
-                  className="form-control "
-                  onChange={this.handleChange}
-                  error={errors.email}
-                />
-
-                <Input
-                  name="password"
-                  label="Password"
-                  type="password"
-                  value={data.password}
-                  placeholder="Password"
-                  className="form-control "
-                  onChange={this.handleChange}
-                  error={errors.password}
-                />
-
-                <center>
-                  <button
-                    type="submit"
-                    className=" btn btn-primary  btn-block mb-3 mt-2"
-                  >
-                    Sign up
-                  </button>
-                </center>
-              </form>
-            </div>
+              <h1> Login</h1>
+              {this.renderInput("email", "Email", "form-control", true)}
+              {this.renderInput(
+                "password",
+                "Password",
+                "form-control",
+                false,
+                "password"
+              )}
+              {this.renderButton("Login")}
+              <br />
+              <label
+                htmlFor="register"
+                style={{ fontSize: "18px", fontWeight: "600" }}
+              >
+                <Link
+                  to={"/signup"}
+                  style={{ textDecoration: `none`, color: "#FFFFFF" }}
+                >
+                  Create new account
+                </Link>
+              </label>
+              <br />
+              <label
+                htmlFor="register"
+                style={{ fontSize: "18px", fontWeight: "600" }}
+              >
+                <Link
+                  to={"/"}
+                  style={{ textDecoration: `none`, color: "#FFFFFF" }}
+                >
+                  Back to Home
+                </Link>
+              </label>
+            </form>
           </div>
         </div>
-      
-      
-       */}
-      
       </div>
     );
   }
